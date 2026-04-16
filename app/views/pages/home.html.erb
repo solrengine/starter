@@ -1,0 +1,178 @@
+<div class="min-h-screen bg-white dark:bg-gray-950">
+  <nav class="border-b border-gray-200 dark:border-gray-800/50">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-7 h-7 text-purple-500 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span class="text-xl font-bold text-gray-900 dark:text-white"><span class="hidden sm:inline">SolRengine </span>Starter</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <%# render Solrengine::Ui::ThemeToggleComponent.new %>
+        <%= render Solrengine::Ui::WalletButtonComponent.new(
+          current_user: nil,
+          login_path: login_path
+        ) %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-5xl mx-auto px-6 pt-20 pb-20">
+    <div class="flex flex-col items-center text-center">
+      <div class="mb-6">
+        <%= render Solrengine::Ui::BadgeComponent.new(text: "Built with SolRengine", variant: :purple) %>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+        Your first Solana dApp<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-400 dark:to-blue-400">built in Rails</span>
+      </h1>
+
+      <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10 max-w-xl">
+        A complete starter app with wallet authentication, token display, SOL transfers, and 20+ UI components. Powered by Rails 8 and the SolRengine framework.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <%= link_to login_path, class: "inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200" do %>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          </svg>
+          Connect Wallet
+        <% end %>
+        <a href="https://github.com/solrengine/starter" target="_blank" class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-gray-700 dark:text-gray-300 font-semibold py-3 px-6 rounded-xl transition-all duration-200">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View Source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <div class="text-center py-4">
+            <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4 mx-auto">
+              <svg class="w-5 h-5 text-purple-500 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+              </svg>
+            </div>
+            <h3 class="text-gray-900 dark:text-white font-semibold mb-2">Wallet Auth</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">SIWS authentication with any Solana wallet. No passwords needed.</p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <div class="text-center py-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4 mx-auto">
+              <svg class="w-5 h-5 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+            </div>
+            <h3 class="text-gray-900 dark:text-white font-semibold mb-2">20+ Components</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">Cards, modals, dropdowns, badges, token lists, transaction status, and more.</p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <div class="text-center py-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-4 mx-auto">
+              <svg class="w-5 h-5 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-gray-900 dark:text-white font-semibold mb-2">Rails 8 + Hotwire</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">Turbo, Stimulus, Tailwind CSS 4. Real-time updates without a JS framework.</p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 pb-20">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">See them in action</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Real components rendered with sample data. Drop them into any view — they're ViewComponents.
+      </p>
+    </div>
+
+    <%= render Solrengine::Ui::CardComponent.new(padding: false) do |c| %>
+      <% c.with_body do %>
+        <div class="px-6 py-5 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <%= render Solrengine::Ui::AddressComponent.new(address: "4Nd1mBQtLpvNkP6s3XPy8rH6EyJzKRuBJgqVBzQDx8Wz", explorer: true) %>
+            <%= render Solrengine::Ui::NetworkBadgeComponent.new(network: "mainnet-beta") %>
+          </div>
+          <%= render Solrengine::Ui::BalanceComponent.new(sol: 12.3456, size: :lg) %>
+        </div>
+
+        <div class="divide-y divide-gray-200 dark:divide-gray-800">
+          <%= render Solrengine::Ui::TokenRowComponent.new(token: { symbol: "USDC", name: "USD Coin", balance: "1,234.56", icon_uri: asset_path("tokens/usdc.png"), usd_value: "1,234.56" }) %>
+          <%= render Solrengine::Ui::TokenRowComponent.new(token: { symbol: "BONK", name: "Bonk", balance: "42,000,000", icon_uri: asset_path("tokens/bonk.jpg"), usd_value: "512.34" }) %>
+          <%= render Solrengine::Ui::TokenRowComponent.new(token: { symbol: "JUP", name: "Jupiter", balance: "87.42", icon_uri: asset_path("tokens/jup.png"), usd_value: "74.31" }) %>
+        </div>
+
+        <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950/50 flex items-center justify-between flex-wrap gap-3">
+          <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-medium">Last transaction</p>
+          <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :confirmed) %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4 font-medium">Badges</p>
+          <div class="flex flex-wrap gap-2">
+            <%= render Solrengine::Ui::BadgeComponent.new(text: "Success", variant: :success) %>
+            <%= render Solrengine::Ui::BadgeComponent.new(text: "Warning", variant: :warning) %>
+            <%= render Solrengine::Ui::BadgeComponent.new(text: "Error", variant: :error) %>
+            <%= render Solrengine::Ui::BadgeComponent.new(text: "Info", variant: :info) %>
+            <%= render Solrengine::Ui::BadgeComponent.new(text: "Purple", variant: :purple) %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4 font-medium">Transaction states</p>
+          <div class="flex flex-wrap gap-2">
+            <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :pending) %>
+            <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :processing) %>
+            <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :failed) %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render Solrengine::Ui::CardComponent.new do |c| %>
+        <% c.with_body do %>
+          <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-4 font-medium">Networks</p>
+          <div class="flex flex-wrap gap-2">
+            <%= render Solrengine::Ui::NetworkBadgeComponent.new(network: "mainnet-beta") %>
+            <%= render Solrengine::Ui::NetworkBadgeComponent.new(network: "devnet") %>
+            <%= render Solrengine::Ui::NetworkBadgeComponent.new(network: "testnet") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <%= render Solrengine::Ui::NotificationComponent.new(message: "Transaction confirmed on Solana.", type: :success, dismissible: false) %>
+      <%= render Solrengine::Ui::NotificationComponent.new(message: "Insufficient SOL balance for this transfer.", type: :error, dismissible: false) %>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/lookbook" target="_blank" class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-gray-700 dark:text-gray-300 font-semibold py-3 px-6 rounded-xl transition-all duration-200">
+        Browse all 20+ components
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="max-w-5xl mx-auto px-6 pt-12 pb-20">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+    <div class="flex items-center gap-3">
+      <%# render Solrengine::Ui::ThemeToggleComponent.new %>
+      <%= render Solrengine::Ui::AirdropButtonComponent.new(
+        address: current_user.wallet_address,
+        network: current_network
+      ) %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <%# Wallet Card %>
+    <%= render Solrengine::Ui::CardComponent.new do |c| %>
+      <% c.with_header do %>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Wallet</h3>
+      <% end %>
+      <% c.with_body do %>
+        <div class="space-y-3">
+          <%= render Solrengine::Ui::AddressComponent.new(
+            address: current_user.wallet_address,
+            copyable: true,
+            explorer: true,
+            network: current_network
+          ) %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%# Balance Card %>
+    <%= render Solrengine::Ui::CardComponent.new do |c| %>
+      <% c.with_header do %>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Balance</h3>
+      <% end %>
+      <% c.with_body do %>
+        <%= render Solrengine::Ui::BalanceComponent.new(
+          sol: @balance_sol,
+          size: :lg
+        ) %>
+      <% end %>
+    <% end %>
+
+    <%# Network Card %>
+    <%= render Solrengine::Ui::CardComponent.new do |c| %>
+      <% c.with_header do %>
+        <h3 class="font-semibold text-gray-900 dark:text-white">Network</h3>
+      <% end %>
+      <% c.with_body do %>
+        <%= render Solrengine::Ui::NetworkBadgeComponent.new(network: current_network) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%# Recent Activity %>
+  <%= render Solrengine::Ui::CardComponent.new do |c| %>
+    <% c.with_header do %>
+      <h3 class="font-semibold text-gray-900 dark:text-white">Status Examples</h3>
+    <% end %>
+    <% c.with_body do %>
+      <div class="flex flex-wrap gap-3">
+        <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :confirmed, signature: "example123", network: current_network) %>
+        <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :pending) %>
+        <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :failed) %>
+        <%= render Solrengine::Ui::TransactionStatusComponent.new(status: :processing) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

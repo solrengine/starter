@@ -1,0 +1,8 @@
+<div class="max-w-md mx-auto px-6 pt-12 pb-20">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Send SOL</h1>
+
+  <%= render Solrengine::Ui::SendTransactionFormComponent.new(
+    wallet_address: current_user.wallet_address,
+    network: current_network
+  ) %>
+</div>

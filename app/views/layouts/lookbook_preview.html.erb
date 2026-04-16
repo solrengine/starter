@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag "application", data_turbo_track: "reload" %>
+  <%= javascript_include_tag "application", data_turbo_track: "reload", defer: true %>
+</head>
+<body class="bg-gray-950 text-gray-100">
+  <main class="min-h-screen flex items-center justify-center p-8">
+    <div class="w-full max-w-2xl">
+      <%= yield %>
+    </div>
+  </main>
+</body>
+</html>
