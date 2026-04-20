@@ -7,7 +7,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get login page" do
-    get login_url
+    get solrengine_auth.login_url
     assert_response :success
   end
 end
