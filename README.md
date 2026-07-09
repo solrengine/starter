@@ -28,6 +28,11 @@ bin/dev
 
 Open `http://localhost:3000`, connect your wallet, and you're in.
 
+> **Use `bin/dev`, not `bin/rails server`.** The JS and CSS bundles are built by
+> watchers that `bin/dev` starts — on a fresh clone, plain `rails server` 500s
+> with `Propshaft::MissingAssetError: application.js` because nothing has built
+> the assets yet.
+
 Browse all components at `http://localhost:3000/lookbook`.
 
 ## Environment Variables
