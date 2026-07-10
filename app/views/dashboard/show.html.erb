@@ -52,6 +52,18 @@
     <% end %>
   </div>
 
+  <%# NFTs %>
+  <div class="mb-8">
+    <%= render Solrengine::Ui::CardComponent.new do |c| %>
+      <% c.with_header do %>
+        <h3 class="font-semibold text-gray-900 dark:text-white">NFTs</h3>
+      <% end %>
+      <% c.with_body do %>
+        <%= render Solrengine::Ui::NftGridComponent.new(nfts: @nfts) %>
+      <% end %>
+    <% end %>
+  </div>
+
   <%# Recent Activity %>
   <%= render Solrengine::Ui::CardComponent.new do |c| %>
     <% c.with_header do %>

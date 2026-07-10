@@ -63,8 +63,8 @@ gem "solrengine-auth"
 gem "solrengine-rpc"
 gem "solrengine-programs"
 
-gem "solrengine-ui"
-gem "solrengine-tokens"
+gem "solrengine-ui", "~> 0.5"
+gem "solrengine-tokens", "~> 0.2"
 
 # Required transitively by solrengine-ui but not auto-required by the gem;
 # declare explicitly so it loads in production (where lookbook is absent).
