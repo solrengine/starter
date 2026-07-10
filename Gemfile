@@ -63,10 +63,8 @@ gem "solrengine-auth"
 gem "solrengine-rpc"
 gem "solrengine-programs"
 
-# TEMP (feat/nfts): path pins to unreleased NFT code — restore version pins
-# before merging (after solrengine-ui / solrengine-tokens releases)
-gem "solrengine-ui", path: "../ui"
-gem "solrengine-tokens", path: "../solrengine-tokens"
+gem "solrengine-ui", "~> 0.5"
+gem "solrengine-tokens", "~> 0.2"
 
 # Required transitively by solrengine-ui but not auto-required by the gem;
 # declare explicitly so it loads in production (where lookbook is absent).
